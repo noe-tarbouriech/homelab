@@ -1,0 +1,31 @@
+---
+# Based on docs.docker.com installation guide for Debian
+
+- name : Install docker dependencies
+  apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg
+      - lsb-release
+
+- name: Add Docker's GPG key
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+
+- name: Add Docker repository
+  apt_repository:
+      repo: deb https://download.docker.com/linux/debian buster stable
+      state: present
+      update_cache: true
+
+- name: Update apt and install docker-ce
+  apt: 
+    pkg: 
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: latest
+

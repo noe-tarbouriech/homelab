@@ -1,0 +1,9 @@
+---
+- hosts: all
+  remote_user: root
+  vars:
+    username: noe
+  roles:
+    - role: utils
+    - role: docker
+      become: yes
