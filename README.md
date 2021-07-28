@@ -1,4 +1,15 @@
 # 🏠 Homelab
-My ansible playbook for my homelab
 
-WIP
+This playbook is the one I use for my personnal "homelab" which is at the moment a single
+debian machine running docker containers.
+## Requirements
+
+- Debian Buster (10.0 - current LTS version)
+- Ansible
+- Vagrant (for testing purposes)
+
+## Usage
+
+```
+ansible-playbook playbook.yml
+```

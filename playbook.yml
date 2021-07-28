@@ -1,10 +1,15 @@
 ---
 
 - hosts: all
+  collections: 
+    - devsec.hardening
   remote_user: root
   vars:
     username: noe
+  become: true
   roles:
+    - os_hardening
+    - ssh_hardening
     - role: utils
       become: yes
     - role: docker

@@ -19,6 +19,7 @@
   when: username is defined
   user:
     name: "{{ username }}"
+    shell: /bin/bash
 
 - name: Add ssh-key
   when: username is defined
