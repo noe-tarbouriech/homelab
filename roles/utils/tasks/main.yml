@@ -4,7 +4,6 @@
   apt:
     upgrade: dist
     update_cache: yes
-  become: yes
 
 - name: Install essential pkgs
   apt:
@@ -15,4 +14,20 @@
       - hddtemp
       - ufw
     state: latest
-  become: yes
+
+- name: Create username
+  when: username is defined
+  user:
+    name: "{{ username }}"
+
+- name: Add ssh-key
+  when: username is defined
+  authorized_key:
+      user: "{{ username }}"
+      key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
+
+- name: Copy vim configuration file
+  when: username is defined
+  copy:
+    src: .vimrc
+    dest: /home/{{ username }}/.vimrc
