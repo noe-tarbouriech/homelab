@@ -1,0 +1,23 @@
+---
+# playit.gg is a service which acts like ngrok but for mc servers
+
+- name: Download playit.gg client
+  get_url:
+      url: https://playit.gg/downloads/playit-linux_64-0.4.4
+      dest: /usr/bin/playitgg
+      checksum: "sha256:eb1c0e7641d6e6ab772bd53f0227dc562a5f86a84aa91a752cd7e4077a12ea0d"
+      mode: 0755
+      group: root
+      owner: root
+  become: yes
+
+- name: Create a playit.gg systemd service
+  template:
+    src: playitgg.service.j2
+    dest: /etc/systemd/system/playitgg.service
+
+- name: Start playit.gg service
+  service:
+    name: playitgg
+    state: started
+    enabled: yes

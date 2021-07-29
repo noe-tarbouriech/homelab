@@ -12,13 +12,15 @@
       - htop
       - git
       - hddtemp
-      - ufw
     state: latest
 
-- name: Create username
+- name: Create user
   when: username is defined
   user:
     name: "{{ username }}"
+    groups: [ sudo ]
+    password: "{{ password }}"
+    update_password: on_create
     shell: /bin/bash
 
 - name: Add ssh-key

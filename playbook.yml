@@ -6,6 +6,13 @@
   remote_user: root
   vars:
     username: noe
+    sysctl_overwrite:
+      # for docker support
+      net.ipv4.ip_forward: 1
+  vars_prompt:
+    - name: password
+      prompt: "Enter your password: "
+      private: yes
   become: true
   roles:
     - os_hardening
@@ -14,3 +21,4 @@
       become: yes
     - role: docker
       become: yes
+    - role: mc

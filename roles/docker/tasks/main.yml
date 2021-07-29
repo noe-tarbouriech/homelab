@@ -9,6 +9,7 @@
       - curl
       - gnupg
       - lsb-release
+      - python-docker
 
 - name: Add Docker's GPG key
   apt_key:
@@ -29,3 +30,11 @@
       - containerd.io
     state: latest
 
+# This is where I store containers volumes
+- name: Create Docker directory
+  file:
+    path: /home/docker
+    state: directory
+  notify: 
+    - Restart Docker
+    

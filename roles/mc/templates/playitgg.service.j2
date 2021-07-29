@@ -1,0 +1,13 @@
+[Unit]
+Description=playit.gg service
+After=docker.service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User={{ username }}
+ExecStart=/usr/bin/playitgg
+
+[Install]
+WantedBy=multi-user.target

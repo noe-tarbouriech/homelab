@@ -13,3 +13,10 @@ debian machine running docker containers.
 ```
 ansible-playbook playbook.yml
 ```
+
+For Vagrant:
+```
+vagrant up
+ssh 192.168.33.10
+(use password 'test')
+```
