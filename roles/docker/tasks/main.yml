@@ -35,6 +35,7 @@
   file:
     path: /home/docker
     state: directory
+    group: "admin"
   notify: 
     - Restart Docker
     

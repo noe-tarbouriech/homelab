@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  remote_user: "{{ username }}"
+  become: yes
+  vars_files:
+    - ../vars.yml
+  roles:
+    - mc

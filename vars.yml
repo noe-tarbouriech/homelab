@@ -1,0 +1,10 @@
+---
+
+# General variables
+username: noe
+ssh_port: 6622
+
+# Minecraft server
+mc_type: "FORGE"
+mc_version: "1.16.5"
+mc_difficulty: "normal"

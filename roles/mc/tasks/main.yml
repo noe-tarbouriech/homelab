@@ -20,13 +20,13 @@
     volumes:
       - /home/docker/mc:/data
     env:
-      TYPE: "FORGE"
-      VERSION: "1.16.5"
+      TYPE: "{{ mc_type }}"
+      VERSION: "{{ mc_version }}"
+      DIFFICULTY: "{{ mc_difficulty }}"
       EULA: "TRUE"
-      MEMORY: 3G
-      DIFFICULTY: normal
+      MEMORY: "3G"
       ENABLE_WHITELIST: "TRUE"
-      MAX_PLAYERS: 5
+      MAX_PLAYERS: "5"
       ALLOW_FLIGHT: "TRUE"
       ENABLE_AUTOPAUSE: "TRUE"
       OVERRIDE_SERVER_PROPERTIES: "TRUE"

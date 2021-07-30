@@ -14,11 +14,16 @@
       - hddtemp
     state: latest
 
+- name: Create admin group
+  group:
+    name: admin
+    state: present
+
 - name: Create user
   when: username is defined
   user:
     name: "{{ username }}"
-    groups: [ sudo ]
+    groups: [ sudo, admin]
     password: "{{ password }}"
     update_password: on_create
     shell: /bin/bash
