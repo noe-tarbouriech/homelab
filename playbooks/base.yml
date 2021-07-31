@@ -14,7 +14,7 @@
     - ../vars.yml
   vars_prompt:
     - name: password
-      prompt: "Enter your password: "
+      prompt: "Enter your user password: "
       private: yes
 
   roles:

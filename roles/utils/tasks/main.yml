@@ -12,6 +12,7 @@
       - htop
       - git
       - hddtemp
+      - lm-sensors
     state: latest
 
 - name: Create admin group
