@@ -1,7 +1,7 @@
 ---
 
 - hosts: all
-  remote_user: root
+  remote_user: "{{ username }}"
   become: yes
   collections: 
     - devsec.hardening

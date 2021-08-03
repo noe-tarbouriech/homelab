@@ -15,7 +15,7 @@
       - lm-sensors
     state: latest
 
-- name: Create admin group
+- name: Ensure user exists
   group:
     name: admin
     state: present

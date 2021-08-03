@@ -3,6 +3,9 @@
 - name: Install playit.gg (mc proxy)
   import_tasks: playitgg.yml
 
+- name: Install backup script
+  import_tasks: backup.yml
+
 - name: Create server's directory
   file:
     path: /home/docker/mc

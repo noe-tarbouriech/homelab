@@ -1,0 +1,17 @@
+---
+# Bash script which back up the current map folder using a cronjob
+
+- name: Install backup script
+  copy:
+    src: mc-backup.sh
+    dest: /usr/bin/mc-backup.sh
+    mode: 0755
+    group: root
+    owner: root
+  become: yes
+
+- name: Setup map backups
+  cron:
+    name: "backup mc map"
+    hour: "*/2"
+    job: /usr/bin/mc-backup.sh
