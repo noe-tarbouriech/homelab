@@ -1,5 +1,7 @@
 ---
 
+- import_playbook: playbooks/hardening.yml
+
 - import_playbook: playbooks/base.yml
 
 - import_playbook: playbooks/mc-server.yml

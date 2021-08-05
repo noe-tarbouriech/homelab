@@ -3,13 +3,7 @@
 - hosts: all
   remote_user: "{{ username }}"
   become: yes
-  collections: 
-    - devsec.hardening
 
-  vars:
-    sysctl_overwrite:
-      # for docker support
-      net.ipv4.ip_forward: 1
   vars_files:
     - ../vars.yml
   vars_prompt:
@@ -18,7 +12,6 @@
       private: yes
 
   roles:
-    - os_hardening
-    - ssh_hardening
+    - networking
     - utils
     - docker

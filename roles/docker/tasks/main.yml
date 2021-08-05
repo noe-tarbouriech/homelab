@@ -39,3 +39,11 @@
   notify: 
     - Restart Docker
     
+- name: Docker Watchtower (container updater)
+  docker_container:
+    name: watchtower
+    state: present
+    restart_policy: always
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

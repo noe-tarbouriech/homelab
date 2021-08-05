@@ -2,7 +2,8 @@
 
 # General variables
 username: noe
-ssh_port: 6622
+local_ip: "192.168.1.20"
+interface: "enp37s0"
 
 # Minecraft server
 mc_type: "FORGE"

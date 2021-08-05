@@ -1,0 +1,29 @@
+---
+
+- name: Establish a static ip
+  when: local_ip is defined
+  template:
+    src: interface.j2
+    dest: /etc/network/interfaces.d/{{ interface }}
+
+- name: Install ufw
+  apt:
+    name: ufw
+    state: latest
+
+# Important in order for ufw to work with docker
+- name: Deploy ufw config
+  blockinfile:
+    path: /etc/ufw/after.rules
+    block: "{{ lookup('file', 'ufw_docker.rules') }}"
+
+- name: Ensure ufw is running
+  ufw:
+    state: enabled
+    logging: 'on'
+    policy: reject
+
+- name: Allow all traffic on LAN
+  ufw:
+    rule: allow
+    src: 192.168.1.0/24
