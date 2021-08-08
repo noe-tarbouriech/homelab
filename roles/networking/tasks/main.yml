@@ -21,7 +21,7 @@
   ufw:
     state: enabled
     logging: 'on'
-    policy: reject
+    policy: deny
 
 - name: Allow all traffic on LAN
   ufw:

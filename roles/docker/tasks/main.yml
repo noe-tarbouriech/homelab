@@ -9,7 +9,15 @@
       - curl
       - gnupg
       - lsb-release
-      - python-docker
+      - python3-pip
+
+- name: Change python interpreter
+  set_fact:
+    ansible_python_interpreter: /usr/bin/python3
+
+- name: Install python docker package
+  pip:
+    name: docker===4.4.4
 
 - name: Add Docker's GPG key
   apt_key:
